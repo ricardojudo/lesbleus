@@ -1,0 +1,138 @@
+es-MX:
+  devise:
+    sessions:
+      sign_in: 'Ingresar'
+      sign_out: 'Salir'
+      sign_up: 'Subscribirse'
+      sign_up_welcome: '¡Bienvenido!, ¿Listo para la experiencia?'
+      sign_in_welcome: '¡Bienvenido!, proporciona tus datos para ingresar'
+      your_account: 'Tu Cuenta'
+    passwords:
+      forgot_password: '¿Olvidaste tu contraseña?'
+      send_reset_instructions: "Enviarme un correo electrónico con instrucciones sobre cómo reestablecer mi contraseña"
+    registrations:
+       edit:
+        are_you_sure: "¿Estás seguro?"
+        cancel_my_account: "Cancelar mi cuenta"
+        leave_blank_if_you_don_t_want_to_change_it: "Dejarla en blanco si no deseas cambiarlo"
+        title: "Actualiza tus datos"
+        current_password_hint: "Necesitamos tu contraseña actual para realizar los cambios"
+        update: "Actualizar"
+        unhappy: "Unhappy"
+    confirmations:
+        did_not_received: "¿No recibiste el correo de confirmacion?"
+  activerecord:
+    models:
+      student: 'Estudiante'
+      expert: 'Experto'
+      venue: 'Establecimiento'
+      workshop: 'Workshop'
+    attributes:
+      student:
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+        remember_me: 'Recordar sesión'
+        current_password: 'Constraseña actual'
+        first_name: 'Nombre'
+        last_name: 'Apellido'
+      expert:
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+        remember_me: 'Recordar sesión'
+        current_password: 'Constraseña actual'
+        first_name: 'Nombre'
+        last_name: 'Apellido'
+      venue:
+        email: 'Correo electrónico'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+        remember_me: 'Recordar sesión'
+        current_password: 'Constraseña actual'
+        name: 'Nombre'
+      workshop:
+        name: 'Nombre'
+        agenda: 'Agenda'
+        length: 'Duración'
+        price: 'Precio'
+        previous_skills: 'Conocimientos previos'
+        target_public: 'Público Objetivo'
+        description: 'Descripción'
+        max_number_participants: 'Número máximo de participantes'
+        state: 'Estado'
+                
+  "true": "Si"
+  "false": "No"
+
+  views:
+    actions:
+      new: 'Nuevo'
+      edit: 'Editar'
+      save: 'Guardar'
+      saving: 'Guardando...'
+      cancel: 'Cancelar'
+      search: 'Buscar'
+      download: 'Descargar'
+      invite: 'Invitar'
+      subscribe: '¡Prueba nuestro servicio!'
+      history: 'Historial'
+      propose: 'Proponer'  
+      my_workshops: 'Mis talleres'
+      make_reservation: 'Hacer reservacion'
+            
+    legends:
+      'yes': 'Si'
+      'no': 'No'
+      new: 'Nuevo'
+      edit: 'Actualizar'
+      view_course: 'Ver curso'
+      glossary: 'Glosario'
+      faq: 'P+F'
+      references: 'Referencias'
+      email_missing: 'El correo electrónico no puede ir en blanco.'
+      confirmed: '¿Confirmado?'
+      welcome_to_learny: '¡Bienvenido a Learny!'
+      student: 'Estudiante'
+      expert: 'Experto'
+      venue: 'Establecimiento'
+      experts:
+        propose_new_workshop: 'Proponer nuevo taller'
+      workshop:
+        proposed_successfully: 'Taller propuesto exitosamente.'
+      
+    status:
+      active: 'Activo'
+      inactive: 'Inactivo'
+
+    states:
+      proposed: 'Propuesto'
+      stand_by: 'En espera'
+      scheduled: 'Calendarizado'
+      cancelled: 'Cancelado'
+      given: 'Impartido'
+# kaminari
+    pagination:
+      first: '&laquo;'
+      last: '&raquo;'
+      previous: '&larr;'
+      next: '&rarr;'
+      truncate: '&hellip;'
+
+  date:
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dic]
+    order:
+      - :day
+      - :month
+      - :year
+
+# Carrierwave I18n
+  errors:
+    messages:
+      extension_white_list_error: "No se permite adjuntar archivos con extensión(es): %{extension}, las extensions permitidas son: %{allowed_types}"
+
