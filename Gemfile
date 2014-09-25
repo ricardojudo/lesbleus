@@ -42,6 +42,8 @@ gem 'haml-rails'
 gem 'devise'
 
 gem 'twitter-bootstrap-rails'
+gem 'devise-token_authenticatable'
+gem 'redis-objects'
 
 
 group :test,:development do
@@ -74,4 +76,8 @@ end
 group :production do
   gem 'pg'
   gem 'redis'
+  gem 'rails_12factor'
 end
+
+
+gem 'unicorn'

@@ -22,7 +22,12 @@ test: &test
 
 production:
   <<: *default
-  database: db/production.sqlite3
-
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  database: lesbleus-app_production
+  username: lesbleus-app
+  password: <%= ENV['LESBLEUS-APP_DATABASE_PASSWORD'] %>
 cucumber:
   <<: *test
