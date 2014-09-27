@@ -14,5 +14,9 @@
     .controls
       = f.text_field :longitude, class: 'form-control', required: true
     = error_span(@stop[:longitude])
+  .form-group
+    = f.label :route_id, class: 'control-label'
+    .controls
+      = collection_select :stop, :route_id, @routes, :id, :name
   = f.submit nil,class: 'btn btn-primary'
   = link_to t('.cancel', :default => t("helpers.links.cancel")), stops_path, :class => 'btn btn-default'

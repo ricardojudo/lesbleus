@@ -15,15 +15,18 @@ class StopsController < ApplicationController
   # GET /stops/new
   def new
     @stop = Stop.new
+    @routes = Route.all
   end
 
   # GET /stops/1/edit
   def edit
+    @routes = Route.all
   end
 
   # POST /stops
   # POST /stops.json
   def create
+    
     @stop = Stop.new(stop_params)
 
     respond_to do |format|
@@ -69,6 +72,6 @@ class StopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stop_params
-      params.require(:stop).permit(:name, :longitude, :latitude)
+      params.require(:stop).permit(:name, :longitude, :latitude, :route_id)
     end
 end
