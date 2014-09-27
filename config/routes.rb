@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :stops
+
   devise_for :users
   unauthenticated do
     root to: 'welcome#index'
@@ -69,6 +71,9 @@ Rails.application.routes.draw do
         post 'sessions' => 'sessions#create', :as => 'login'
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
+      
+      resources :stops, only: [:index]
+      
     end
   end
 end

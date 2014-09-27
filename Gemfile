@@ -54,7 +54,7 @@ group :test,:development do
 end
 
 group :test do
-  gem 'ffaker'
+  gem 'faker'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'shoulda-matchers'

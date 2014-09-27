@@ -1,0 +1,21 @@
+- model_class = Stop
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @stop.name
+%p
+  %strong= model_class.human_attribute_name(:latitude) + ':'
+  %br
+  = @stop.latitude
+%p
+  %strong= model_class.human_attribute_name(:longitude) + ':'
+  %br
+  = @stop.longitude
+
+
+= link_to t('.back', :default => t("helpers.links.back")), stops_path, :class => 'btn btn-default'
+= link_to t('.edit', :default => t("helpers.links.edit")), edit_stop_path(@stop), :class => 'btn btn-default'
+= link_to t('.destroy', :default => t("helpers.links.destroy")), stop_path(@stop), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
