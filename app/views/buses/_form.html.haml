@@ -1,0 +1,18 @@
+= form_for @bus, html: { class: "form form-horizontal bus" } do |f|
+  .form-group
+    = f.label :name, class: 'control-label'
+    .controls
+      = f.text_field :name, class: 'form-control', required: true
+    = error_span(@bus[:name])
+  .form-group
+    = f.label :bid, class: 'control-label'
+    .controls
+      = f.text_field :bid, class: 'form-control', required: true
+    = error_span(@bus[:bid])
+  .form-group
+    = f.label :route_id, class: 'control-label'
+    .controls
+      = collection_select :bus, :route_id, @routes, :id, :name
+    = error_span(@bus[:route_id])
+  = f.submit nil,class: 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), buses_path, :class => 'btn btn-default'
