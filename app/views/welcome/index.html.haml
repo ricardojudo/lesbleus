@@ -1,2 +1,12 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+
+
+.jumbotron
+  .container
+    %h1 Welcome to Bleus
+    %p Transportation made easy!
+
+    = link_to new_user_registration_path, :class => "btn btn-primary btn-lg" do
+      = t('devise.sessions.sign_up', default: 'Sign up') 
+
+
+
