@@ -5,7 +5,7 @@ class Bus < ActiveRecord::Base
   
   
   def increase_passengers
-    self.passengers = 0 if !self.passengers?
+    self.passengers = 0 if self.passengers.nil?
     self.passengers += 1
   end
   
