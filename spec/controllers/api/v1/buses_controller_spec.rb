@@ -27,7 +27,6 @@ RSpec.describe Api::V1::BusesController, :type => :controller do
         {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'Bleus-Action' => 'Check-Out'} 
       expect(response.status).to eq 200
     end
-
   end
 
 end

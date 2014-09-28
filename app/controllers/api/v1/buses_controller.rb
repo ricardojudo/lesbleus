@@ -11,6 +11,12 @@ class Api::V1::BusesController < ApplicationController
     end
   end
 
+
+  def index
+    buses=Bus.all    
+    render json: buses, status: :ok
+  end
+
   private
   def bus_params
     params.require(:bus).permit( :bid, :longitude, :latitude)

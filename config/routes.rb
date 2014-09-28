@@ -76,11 +76,12 @@ Rails.application.routes.draw do
         delete 'sessions' => 'sessions#destroy', :as => 'logout'
       end
       
-      resources :stops, only: [:index]
-      resources :buses, only: [:index]
-      
+      resources :stops, only: [:index] do
+        resources :buses, only: [:index]
+      end
+
       patch '/buses/position' => 'buses#update_position', :as => 'buses_update_position'
-      
+
     end
   end
 end
