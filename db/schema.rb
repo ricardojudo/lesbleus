@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140928044526) do
+ActiveRecord::Schema.define(version: 20140928060922) do
+
+  create_table "balance_reloads", force: true do |t|
+    t.float    "amount"
+    t.string   "pay_pal_tx"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "buses", force: true do |t|
     t.string   "name"
@@ -37,6 +45,13 @@ ActiveRecord::Schema.define(version: 20140928044526) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "route_id"
+  end
+
+  create_table "ticket_payments", force: true do |t|
+    t.float    "amount"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
