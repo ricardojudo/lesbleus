@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   end
   
   def enough_balance(amount)
+    self.balance = 0 if self.balance.nil?
     self.balance - amount > 0
   end
 end
