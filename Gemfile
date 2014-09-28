@@ -74,7 +74,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'mysql2', '~> 0.3.16'
   gem 'redis'
   gem 'rails_12factor'
 end

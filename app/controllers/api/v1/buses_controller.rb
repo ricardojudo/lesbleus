@@ -24,7 +24,7 @@ class Api::V1::BusesController < ApplicationController
 
 
   def index
-    delta=0.005
+    delta=0.01
     stop=Stop.find(params[:stop_id])
     
     min_longitude=stop.longitude-delta
