@@ -82,8 +82,11 @@ Rails.application.routes.draw do
 
       resources :buses, only: [:show]
       resources :users, only: [:index, :update]
-      resources :balance_reloads, only: [:create]
-      resources :ticket_payments, only: [:create]
+      #resources :balance_reloads, only: [:create]
+      #resources :ticket_payments, only: [:create]
+      
+      patch '/balance_reloads' => 'balance_reloads#create' , :as => 'create_balance_reloads'
+      patch '/ticket_payments' => 'ticket_payments#create' , :as => 'create_ticket_payments'
       
       patch '/buses/position' => 'buses#update_position', :as => 'buses_update_position'
     end
