@@ -13,7 +13,15 @@ class Api::V1::BusesController < ApplicationController
 
 
   def index
-    buses=Bus.all    
+    delta=0.001
+    
+    min_longitude=params[:longitude].to_f-delta
+    max_longitude=params[:longitude].to_f+delta
+    
+    min_latitude=params[:latitude].to_f-delta
+    max_latitude=params[:latitude].to_f+delta
+    stop=Stop.find(params[:stop_id])
+    buses=Bus.where(route: stop.route, latitude: (min_latitude .. max_latitude), longitude: (min_longitude .. max_longitude))    
     render json: buses, status: :ok
   end
 
