@@ -1,7 +1,5 @@
 class Api::V1::TicketPaymentsController < ApplicationController
-  skip_before_filter :verify_authenticity_token,
-                     :if => Proc.new { |c| c.request.format == 'application/json' }
-
+  skip_before_filter :verify_authenticity_token
   #before_filter :authenticate_custom_user!#:authenticate_user!
   
   def create
@@ -23,14 +21,6 @@ class Api::V1::TicketPaymentsController < ApplicationController
 
   def ticket_payment_params
     params.require(:ticket_payment).permit(:amount)
-  end
-  
-  protected
-  def authenticate_custom_user
-    token=params[:auth_token]
-    user = User.where(:authentication_token => token).first()
-    sign_in user if user
-  
   end
   
 end
