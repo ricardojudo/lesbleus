@@ -13,7 +13,7 @@ RSpec.describe Api::V1::BusesController, :type => :controller do
     end
 
     it "Update position" do
-    bus=FactoryGirl.create(:bus)
+      bus=FactoryGirl.create(:bus)
       patch :update_position,
         {:bus =>FactoryGirl.attributes_for(:bus)},
         {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s}
@@ -21,10 +21,19 @@ RSpec.describe Api::V1::BusesController, :type => :controller do
     end
 
     it "Checkout" do
-    bus=FactoryGirl.create(:bus)
+      bus=FactoryGirl.create(:bus)
       patch :update_position,
         {:bus =>FactoryGirl.attributes_for(:bus)},
-        {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'Bleus-Action' => 'Check-Out'} 
+        {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'Bleus-Action' => 'Check-Out'}
+      expect(response.status).to eq 200
+    end
+  end
+
+  describe "Find buses" do
+    it "Buses by bid" do
+      bus=FactoryGirl.create(:bus)
+      get :show, {:id => bus.bid},
+      {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s, 'Bleus-Action' => 'BID'}
       expect(response.status).to eq 200
     end
   end

@@ -24,7 +24,7 @@ class Api::V1::BusesController < ApplicationController
 
 
   def index
-    delta=0.001
+    delta=0.005
     stop=Stop.find(params[:stop_id])
     
     min_longitude=stop.longitude-delta
@@ -35,6 +35,11 @@ class Api::V1::BusesController < ApplicationController
     stop=Stop.find(params[:stop_id])
     buses=Bus.where(route: stop.route, latitude: (min_latitude .. max_latitude), longitude: (min_longitude .. max_longitude))    
     render json: buses, status: :ok
+  end
+
+  def show
+    bus=Bus.where(:bid => params[:id]).first
+    render json: bus, status: :ok
   end
 
   private

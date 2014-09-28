@@ -1,7 +1,7 @@
 class Api::V1::StopsController < ApplicationController
 
   def index
-    delta=0.001
+    delta=0.005
     
     min_longitude=params[:longitude].to_f-delta
     max_longitude=params[:longitude].to_f+delta

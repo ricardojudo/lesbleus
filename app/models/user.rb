@@ -11,4 +11,13 @@ class User < ActiveRecord::Base
   def skip_confirmation!
     self.confirmed_at = Time.now
   end
+  
+  def pay_balance(balance)
+    self.balance = 0 if self.balance.nil?
+    self.balance += balance
+  end
+  
+  def pay_ticket(amount)
+    self.balance -= amount
+  end
 end

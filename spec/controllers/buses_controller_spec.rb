@@ -24,12 +24,12 @@ RSpec.describe BusesController, :type => :controller do
   # Bus. As you add validations to Bus, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    #skip("Add a hash of attributes valid for your model")
+    skip("Add a hash of attributes valid for your model")
     FactoryGirl.attributes_for(:bus)
   }
 
   let(:invalid_attributes) {
-#    skip("Add a hash of attributes invalid for your model")
+   skip("Add a hash of attributes invalid for your model")
       FactoryGirl.attributes_for(:invalid_bus)
   }
 

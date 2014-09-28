@@ -15,4 +15,20 @@ RSpec.describe User, :type => :model do
     it { should respond_to :last_name }
     it { should respond_to :email }
   end
+  
+  describe 'payments' do
+    it{
+      user=FactoryGirl.build(:user)
+      user.pay_balance 100.00
+      expect(user.balance).to be_equal 100.00
+    }
+    
+    it{
+      user=FactoryGirl.build(:user)
+      user.pay_balance 100.00
+      expect(user.balance).to be_equal 100.00
+      user.pay_ticket 5.00
+      expect(user.balance).to be_equal 95.00
+    }
+  end
 end
