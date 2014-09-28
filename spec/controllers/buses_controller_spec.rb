@@ -24,11 +24,13 @@ RSpec.describe BusesController, :type => :controller do
   # Bus. As you add validations to Bus, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    #skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:bus)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+#    skip("Add a hash of attributes invalid for your model")
+      FactoryGirl.attributes_for(:invalid_bus)
   }
 
   # This should return the minimal set of values that should be in the session
@@ -103,14 +105,14 @@ RSpec.describe BusesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        FactoryGirl.attributes_for(:bus, :name => Faker::Name.name)
       }
 
       it "updates the requested bus" do
         bus = Bus.create! valid_attributes
         put :update, {:id => bus.to_param, :bus => new_attributes}, valid_session
         bus.reload
-        skip("Add assertions for updated state")
+        #skip("Add assertions for updated state")
       end
 
       it "assigns the requested bus as @bus" do

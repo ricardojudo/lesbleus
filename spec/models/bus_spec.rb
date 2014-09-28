@@ -12,5 +12,7 @@ RSpec.describe Bus, :type => :model do
     subject { FactoryGirl.build(:bus) }
     it { should respond_to :name }
     it { should respond_to :bid }
+    it { should respond_to :longitude}
+    it { should respond_to :latitude}
   end
 end

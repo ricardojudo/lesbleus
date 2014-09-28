@@ -4,6 +4,8 @@ FactoryGirl.define do
   factory :bus do
     name "0001"
     bid "00000000-0000-0000-0000-000000006669"
+    latitude {Faker::Address.latitude}
+    longitude {Faker::Address.longitude}
     factory :invalid_bus do
       name nil
       bid nil
