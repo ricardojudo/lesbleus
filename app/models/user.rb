@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   def pay_ticket(amount)
     self.balance -= amount
   end
+  
+  def enough_balance(amount)
+    self.balance - amount > 0
+  end
 end

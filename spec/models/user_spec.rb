@@ -25,6 +25,17 @@ RSpec.describe User, :type => :model do
     
     it{
       user=FactoryGirl.build(:user)
+      expect(user.enough_balance 5.00).to be_falsey
+    }
+    
+    it{
+      user=FactoryGirl.build(:user)
+      user.pay_balance 100.00
+      expect(user.enough_balance 5.00).to be_truthy
+    }
+    
+    it {
+      user=FactoryGirl.build(:user)
       user.pay_balance 100.00
       expect(user.balance).to be_equal 100.00
       user.pay_ticket 5.00

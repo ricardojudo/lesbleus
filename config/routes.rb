@@ -84,7 +84,6 @@ Rails.application.routes.draw do
       resources :users, only: [:index, :update]
 
       patch '/buses/position' => 'buses#update_position', :as => 'buses_update_position'
-
     end
   end
 end
