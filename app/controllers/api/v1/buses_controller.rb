@@ -9,6 +9,14 @@ class Api::V1::BusesController < ApplicationController
     else
       render json: episode.errors, status: 422
     end
+    if bleus_action?
+      if bleus_action == 'Check-In'
+        bus.increase_passengers
+      elsif bleus_action == 'Check-Out'
+        bus.decrease_passengers
+      end
+      bus.save
+    end
   end
 
 

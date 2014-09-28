@@ -15,4 +15,26 @@ RSpec.describe Bus, :type => :model do
     it { should respond_to :longitude}
     it { should respond_to :latitude}
   end
+  
+  describe 'passengers' do
+    it{
+      bus=FactoryGirl.create(:bus);
+      bus.increase_passengers
+      expect(bus.passengers).to be_equal 1
+      bus.increase_passengers
+      expect(bus.passengers).to be_equal 2
+    }
+    it{
+      bus=FactoryGirl.create(:bus);
+      bus.increase_passengers
+      expect(bus.passengers).to be_equal 1
+      bus.increase_passengers
+      expect(bus.passengers).to be_equal 2
+      bus.increase_passengers
+      expect(bus.passengers).to be_equal 3
+      bus.decrease_passengers
+      expect(bus.passengers).to be_equal 2
+      
+    }
+  end
 end
