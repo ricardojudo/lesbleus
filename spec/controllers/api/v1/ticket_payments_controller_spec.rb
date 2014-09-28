@@ -6,7 +6,7 @@ RSpec.describe Api::V1::TicketPaymentsController, :type => :controller do
       user=FactoryGirl.create(:user, :balance=> 500)
       sign_in user
       post :create, {:ticket_payment =>FactoryGirl.attributes_for(:ticket_payment, :amount => 5.00),
-         :auth_token=>user.authentication_token},
+         :token=>user.authentication_token},
         {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s}
       expect(response.status).to eq 200
 
@@ -22,7 +22,7 @@ RSpec.describe Api::V1::TicketPaymentsController, :type => :controller do
       user=FactoryGirl.create(:user)
       sign_in user
       post :create, {:ticket_payment =>FactoryGirl.attributes_for(:ticket_payment, :amount => 5.00),
-        :auth_token=>user.authentication_token},
+        :token=>user.authentication_token},
         {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s}
       expect(response.status).to eq 422
 

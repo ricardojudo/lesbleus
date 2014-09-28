@@ -5,7 +5,7 @@ class Api::V1::TicketPaymentsController < ApplicationController
   #before_filter :authenticate_custom_user!#:authenticate_user!
   
   def create
-    current_user=User.where(:authentication_token => params[:auth_token]).first
+    current_user=User.where(:authentication_token => params[:token]).first
     amount = ticket_payment_params[:amount].to_f
     if current_user.enough_balance(amount)
       current_user.pay_ticket(amount)

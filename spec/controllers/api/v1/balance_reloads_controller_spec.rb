@@ -6,7 +6,8 @@ RSpec.describe Api::V1::BalanceReloadsController, :type => :controller do
     it 'Balance reloaded' do
       user=FactoryGirl.create(:user)
       sign_in user
-      post :create, {:balance_reload =>FactoryGirl.attributes_for(:balance_reload, :amount => 500)},
+      post :create, {:balance_reload =>FactoryGirl.attributes_for(:balance_reload, :amount => 500),
+        :token=>user.authentication_token},
         {'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s}
       expect(response.status).to eq 204
       
