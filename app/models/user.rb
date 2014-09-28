@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  before_save :ensure_authentication_token
+  #before_save :ensure_authentication_token
 
   validates :first_name, presence: true
   validates :email, uniqueness: true
@@ -29,4 +29,6 @@ class User < ActiveRecord::Base
     self.balance = 0 if self.balance.nil?
     self.balance - amount > 0
   end
+  
+  
 end

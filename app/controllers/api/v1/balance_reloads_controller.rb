@@ -1,4 +1,5 @@
 class Api::V1::BalanceReloadsController < ApplicationController
+  
   skip_before_filter :verify_authenticity_token,
                      :if => Proc.new { |c| c.request.format == 'application/json' }
 
@@ -8,7 +9,7 @@ class Api::V1::BalanceReloadsController < ApplicationController
     balance_reload=BalanceReload.new(balance_reload_params, :user_id => current_user.id)
     
     if balance_reload.save
-      current_user=User.where(:authentication_token => params[:token]).first
+      current_user=User.where(:id => params[:token]).first
       current_user.pay_balance(balance_reload_params[:amount].to_f)
       current_user.save
       
